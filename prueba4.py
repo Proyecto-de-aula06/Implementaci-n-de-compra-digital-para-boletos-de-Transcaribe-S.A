@@ -134,6 +134,9 @@ def register():
     contraseña = input("Ingresa tu contraseña: ")
     confirmar_contraseña = input("Confirma tu contraseña: ")
 
+    usuarios.append((nombre.lower(), contraseña))
+
+
     print("\n¡Gracias por registrarte :)!")
     print("Nombre:", nombre)
     print("Edad:", edad)
