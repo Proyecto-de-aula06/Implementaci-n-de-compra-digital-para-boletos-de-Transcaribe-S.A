@@ -7,6 +7,7 @@ usuarios = [
     ("juan", "000"),
     ("maria", "111")
 ]
+opiniones= []
 
 def login(username, password):
     for user in usuarios:
@@ -64,6 +65,12 @@ def ingresar_datos_pago(metodo_pago):
         contraseña = input("Ingrese su contraseña: ")
         print("Datos ingresados correctamente.")
 
+def dar_opinion():
+    usuario = input("Ingrese su nombre de usuario: ")
+    opinion = input("Por favor, escriba su opinión: ")
+    opiniones[usuario] = opinion
+    print("¡Gracias por compartir su opinión!")
+
 def iniciar_recarga():
     Recargar_tarjeta = {}
 
@@ -80,6 +87,7 @@ def iniciar_recarga():
         else:
             print("El registro de recarga está vacío.")
 
+
     # Función para eliminar una recarga
     def eliminar_Recarga(numero_de_tarjeta):
         if numero_de_tarjeta in Recargar_tarjeta:
@@ -93,7 +101,7 @@ def iniciar_recarga():
         print("1. Realizar Recarga")
         print("2. Registro de Recargas")
         print("3. Borrar Registro de Recarga")
-        print("4. Cerrar Sesión")
+        print("4. Cerrar sesión")
 
         opcion = input("Seleccione una opción: ")
 
@@ -136,22 +144,24 @@ def register():
 
     usuarios.append((nombre.lower(), contraseña))
 
-
     print("\n¡Gracias por registrarte :)!")
     print("Nombre:", nombre)
+    print("Apellido:", apellidos)
     print("Edad:", edad)
     print("Correo:", correo)
-    print("Apellido:", apellidos)
     print("Contraseña:", contraseña)
     print("Confirma tu contraseña:", confirmar_contraseña)
     print("Su registro ha sido exitoso, ¡Bienvenido! :)")
+    
+
 
 def main():
     while True:
         print("\n¡Menu de registro:")
         print("1. Registro")
         print("2. Iniciar sesión")
-        print("3. Salir")
+        print("3. Mi opinion")
+        print("4. Salir")
         choice = input("Ingresa una opción: ")
 
         if choice == '1':
@@ -160,6 +170,10 @@ def main():
             if iniciar_sesion():
                 iniciar_recarga()
         elif choice == '3':
+         usuario = input("Ingrese su nombre de usuario: ")
+         opinion = input("Por favor, escriba su opinión: ")
+         print("¡Gracias por compartir su opinión!")
+        elif choice == '4':
             print("Cerrando el programa... Hasta pronto :)")
             break
         else:
