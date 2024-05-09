@@ -222,7 +222,9 @@ def main():
             if iniciar_sesion():
                 iniciar_recarga()
         elif choice == '3':
-            dar_opinion()
+            usuario = input("Ingrese su nombre de usuario: ")
+            opinion = input("Por favor, escriba su opinión: ")
+            print("¡Gracias por compartir su opinión!")
         elif choice == '4':
             print("Cerrando el programa... Hasta pronto :)")
             break
