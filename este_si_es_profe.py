@@ -181,8 +181,8 @@ def register():
             print("La edad solo puede contener números.")
             continue
         edad = int(edad)
-        if edad < 16 or edad > 100:
-            print("solo se permiten a usuarios de 16 a 100 años de edad")
+        if edad < 15 or edad > 100:
+            print("solo se permiten a usuarios de 15 a 100 años de edad")
             continue
         while True:
             correo = input("Ingresa tu correo electrónico: ")
