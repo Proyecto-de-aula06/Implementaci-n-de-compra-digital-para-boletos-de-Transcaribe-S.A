@@ -155,9 +155,10 @@ public class Transcaribe {
 
             switch (opcion) {
                 case "1":
+                    String numeroTarjeta;
                     while (true) {
                         System.out.print("Ingrese el Número de tarjeta de la Recarga: ");
-                        String numeroTarjeta = scanner.nextLine();
+                        numeroTarjeta = scanner.nextLine();
                         if (!validarNumeros(numeroTarjeta)) {
                             System.out.println("El número de tarjeta solo puede contener números.");
                         } else {
@@ -174,7 +175,7 @@ public class Transcaribe {
                         String metodoPago = scanner.nextLine();
                         if (validarMetodoPago(metodoPago)) {
                             ingresarDatosPago(metodoPago, scanner);
-                            recargarTarjeta.put(monto, metodoPago);
+                            recargarTarjeta.put(numeroTarjeta, monto);  // Ahora el número de tarjeta es la clave
                             System.out.println("Tarjeta recargada con éxito.");
                         } else {
                             System.out.println("Método de pago no válido.");
@@ -186,8 +187,8 @@ public class Transcaribe {
                     break;
                 case "3":
                     System.out.print("Ingrese el Número de tarjeta de la Recarga a eliminar: ");
-                    String numeroTarjeta = scanner.nextLine();
-                    eliminarRecarga(numeroTarjeta);
+                    String numeroTarjetaEliminar = scanner.nextLine();
+                    eliminarRecarga(numeroTarjetaEliminar);
                     break;
                 case "4":
                     System.out.println("Sesión cerrada con éxito.");
@@ -211,11 +212,12 @@ public class Transcaribe {
     public static void eliminarRecarga(String numeroTarjeta) {
         if (recargarTarjeta.containsKey(numeroTarjeta)) {
             recargarTarjeta.remove(numeroTarjeta);
-            System.out.println("Recarga " + numeroTarjeta + " eliminada con éxito.");
+            System.out.println("Recarga de la tarjeta " + numeroTarjeta + " eliminada con éxito.");
         } else {
-            System.out.println("La recarga " + numeroTarjeta + " no se encuentra.");
+            System.out.println("La recarga de la tarjeta " + numeroTarjeta + " no se encuentra.");
         }
     }
+
 
     public static void registrar(Scanner scanner) {
         System.out.println("¡Bienvenido al registro de usuario!");
